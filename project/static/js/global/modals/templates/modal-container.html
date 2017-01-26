@@ -1,0 +1,35 @@
+<div class="modal-container">
+    <div class="container modal-wrap">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card has-paper-edge card-modal-outer">
+                    <div class="card-modal-outer-header">
+                        <span class="hole-punch punch-left"></span>
+                        <span class="hole-punch punch-right"></span>
+                        <button class="close"></button>
+                    </div>
+                    <div class="card-modal-outer-body">
+                        {{#if startdate}}
+                            <div class="card-modal-body-header">
+                                <h3 class="modal-date-title">{{startdate}} &#8226; {{starttime}}</h3>
+                            </div>
+                        {{else}} {{#if title}}
+                            <div class="card-modal-body-header">
+                                <h3 class="modal-date-title">{{title}}</h3>
+                            </div>
+                        {{else}}
+                            <div class="card-modal-body-header empty-header"></div>
+                        {{/if}}{{/if}}
+
+                        {{#if content}}
+                            <h2 class="modal-name">{{content}}</h2>
+                        {{else}}
+                            <h2 class="modal-name">{{first_name}} {{last_name}}</h2>
+                        {{/if}}
+                        <div class="modal-inner-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+
+version: "2"
+services:
+  django:
+    image: dinopetrone/critical-path:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/usr/app
+    stdin_open: true
+    working_dir: /usr/app/
+    tty: true
+    command: "/bin/bash"
+    links:
+      - postgres:postgres
+    environment:
+      DJANGO_SETTINGS_MODULE: project.settings.local
+      DJANGO_DEBUG: "true"
+    logging:
+      driver: none
+
+  postgres:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - /usr/lib/postgresql
+      - .:/usr/app
+    environment:
+     POSTGRES_USER: vagrant
+     POSTGRES_PASSWORD: vagrant
+    logging:
+      driver: none
+
