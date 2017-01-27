@@ -189,9 +189,8 @@ LOGGING = {
 
 # AWS settings
 USE_HTTPS_FOR_ASSETS = False
-AWS_ACCESS_KEY_ID = getenv('AWS_ACCESS_KEY_ID', '#####################')
-AWS_SECRET_ACCESS_KEY = getenv(
-    'AWS_SECRET_ACCESS_KEY', '########################################')
+AWS_ACCESS_KEY_ID = "AKIAITL73Q7EDDRLQ77A"
+AWS_SECRET_ACCESS_KEY = "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"
 AWS_QUERYSTRING_AUTH = False
 AWS_BUCKET_NAME = AWS_STORAGE_BUCKET_NAME = 'excusinator-prod'
 STATICFILES_STORAGE = 'utils.storage.OptimizedS3BotoStorage'
