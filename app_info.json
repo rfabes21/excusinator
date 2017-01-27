@@ -12,7 +12,7 @@
 		"DJANGO_SETTINGS_MODULE":"project.settings.staging"
 	},
 	"prod": {
-		"heroku_app_name": "excusinator-prod",
+		"heroku_app_name": "excusinator",
 		"heroku_remote_name": "production",
 		"branch_name": "master",
 		"DJANGO_SETTINGS_MODULE":"project.settings.prod"
