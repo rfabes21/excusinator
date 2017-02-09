@@ -1,6 +1,6 @@
 """Common settings and globals."""
 import dj_database_url
-import os
+# import os
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
 
@@ -245,6 +245,7 @@ THIRD_PARTY_APPS = (
     "mezzanine.forms",
     "mezzanine.galleries",
     'redactor',
+    'rest_framework',
     # Database migration helpers:
 
 )
@@ -300,6 +301,13 @@ REQUIRE_ENVIRONMENT = "node"
 
 AWS_IS_GZIPPED = True
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 #  MEZZANINE SPECIFIC
 USE_MODELTRANSLATION = False

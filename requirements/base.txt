@@ -21,3 +21,5 @@ pytz==2015.4
 pyuploadcare==2.0.1
 django-wysiwyg-redactor==0.4.9
 django-robots==2.0
+markdown==2.6.8
+django-filter==1.0.1

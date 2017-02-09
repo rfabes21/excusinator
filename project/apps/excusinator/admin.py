@@ -9,3 +9,13 @@ from . import models
 @admin.register(models.Home)
 class HomeAdmin(SingletonAdmin):
     pass
+
+
+@admin.register(models.ExcuseType)
+class ExcuseTypeAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(models.Excuse)
+class ExcuseAdmin(admin.ModelAdmin):
+    pass
