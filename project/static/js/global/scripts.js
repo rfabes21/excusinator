@@ -154,7 +154,6 @@ var skel=function(){"use strict";var t={breakpointIds:null,events:{},isInit:!1,o
 
                     $this
                         .on('click', 'a', function(event) {
-
                             var $a = $(this),
                                 href = $a.attr('href'),
                                 target = $a.attr('target');
@@ -951,6 +950,7 @@ var skel=function(){"use strict";var t={breakpointIds:null,events:{},isInit:!1,o
                                 event.stopPropagation();
 
                             // Show article.
+                                console.log('GET API DATA');
                                 $main._show(location.hash.substr(1));
 
                         }
