@@ -605,6 +605,23 @@ var skel=function(){"use strict";var t={breakpointIds:null,events:{},isInit:!1,o
 
     $(function() {
 
+        var excuses;
+
+        console.log('GET API DATA');
+        jQuery.ajax({
+            url: "/api/excuses/",
+            type: "GET",
+            contentType: 'application/json; charset=utf-8',
+            success: function(resultData) {
+                console.log(resultData)
+                excuses = resultData;
+            },
+            error : function(jqXHR, textStatus, errorThrown) {
+            },
+
+            timeout: 120000,
+        });
+
         var $window = $(window),
             $body = $('body'),
             $wrapper = $('#wrapper'),
@@ -664,7 +681,7 @@ var skel=function(){"use strict";var t={breakpointIds:null,events:{},isInit:!1,o
                 locked = false;
 
             // Methods.
-                $main._show = function(id, initial) {
+                $main._show = function(id, initial, selected_excuse) {
 
                     var $article = $main_articles.filter('#' + id);
 
@@ -766,6 +783,10 @@ var skel=function(){"use strict";var t={breakpointIds:null,events:{},isInit:!1,o
 
                                     // Show main, article.
                                         $main.show();
+
+                                        $article.find('.major').text(selected_excuse.title);
+                                        $article.find('.excuse-copy').text(selected_excuse.excuse_copy);
+
                                         $article.show();
 
                                     // Activate article.
@@ -950,8 +971,15 @@ var skel=function(){"use strict";var t={breakpointIds:null,events:{},isInit:!1,o
                                 event.stopPropagation();
 
                             // Show article.
-                                console.log('GET API DATA');
-                                $main._show(location.hash.substr(1));
+                                var excuse_hash = location.hash.substr(1);
+                                var filtered_excuses = [];
+                                for (var i = 0; i < excuses.length ; i++) {
+                                    if (excuses[i].excuse_type === excuse_hash || excuses[i].excuse_type === "all" ) {
+                                        filtered_excuses.push(excuses[i]);
+                                    }
+                                }
+                                var random_from_filtered = filtered_excuses[Math.floor(Math.random()*filtered_excuses.length)];
+                                $main._show(excuse_hash, null, random_from_filtered);
 
                         }
 

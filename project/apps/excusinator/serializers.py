@@ -15,6 +15,11 @@ class ExcusesSerializer(serializers.HyperlinkedModelSerializer):
 
     def to_representation(self, obj):
         data = super(ExcusesSerializer, self).to_representation(obj)
+        if obj.excuse_type:
+            excuse_type = obj.excuse_type.label
+            data.update({"excuse_type": excuse_type})
+        else:
+            data.update({"excuse_type": "all"})
         return data
 
     class Meta:
