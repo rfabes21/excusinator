@@ -18,4 +18,5 @@ class ExcuseTypeAdmin(admin.ModelAdmin):
 
 @admin.register(models.Excuse)
 class ExcuseAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("title", "excuse_type")
+    list_filter = ("title", "excuse_type")
