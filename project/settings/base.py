@@ -217,7 +217,7 @@ ROOT_URLCONF = '%s.urls' % SITE_NAME
 DJANGO_APPS = (
     'utils',
     'grappelli_safe',
-    'filebrowser_safe',
+    # 'filebrowser_safe',
     # Default Django apps:
     'django.contrib.auth',
     'django.contrib.contenttypes',
