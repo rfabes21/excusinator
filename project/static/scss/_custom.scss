@@ -1,0 +1,15 @@
+.button-group {
+    text-align: center;
+
+    a {
+        display: inline-block;
+    }
+
+    .prev {
+        float: left;
+    }
+
+    .next {
+        float: right;
+    }
+}

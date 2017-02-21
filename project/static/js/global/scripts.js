@@ -65,6 +65,9 @@ var skel=function(){"use strict";var t={breakpointIds:null,events:{},isInit:!1,o
             var $this = $(this),
                 $body = $('body'),
                 $window = $(window),
+                $select = $('.select'),
+                $next = $('.next'),
+                $prev = $('.prev'),
                 id = $this.attr('id'),
                 config;
 
@@ -978,12 +981,44 @@ var skel=function(){"use strict";var t={breakpointIds:null,events:{},isInit:!1,o
                                         filtered_excuses.push(excuses[i]);
                                     }
                                 }
-                                var random_from_filtered = filtered_excuses[Math.floor(Math.random()*filtered_excuses.length)];
+                                var key = Math.floor(Math.random()*filtered_excuses.length)
+                                var random_from_filtered = filtered_excuses[key];
                                 $main._show(excuse_hash, null, random_from_filtered);
-
                         }
 
+                        $('.prev').on('click', function(event){
+                            event.preventDefault();
+                            event.stopImmediatePropagation();
+
+                            if (key == 0) {
+                                key = filtered_excuses.length - 1;
+                            } else {
+                                key = key - 1;
+                            }
+
+                            var $panel = $('#' + event.target.dataset['tag']);
+                            var prev_from_filtered = filtered_excuses[key];
+                            $panel.find('.major').text(prev_from_filtered.title);
+                            $panel.find('.excuse-copy').text(prev_from_filtered.excuse_copy);
+                        });
+
+                        $('.next').on('click', function(event){
+                            event.preventDefault();
+                            event.stopImmediatePropagation();
+
+                            if (key == filtered_excuses.length - 1) {
+                                key = 0;
+                            } else {
+                                key = key + 1;
+                            }
+
+                            var $panel = $('#' + event.target.dataset['tag']);
+                            var next_from_filtered = filtered_excuses[key];
+                            $panel.find('.major').text(next_from_filtered.title);
+                            $panel.find('.excuse-copy').text(next_from_filtered.excuse_copy);
+                        });
                 });
+
 
             // Scroll restoration.
             // This prevents the page from scrolling back to the top on a hashchange.
