@@ -75,10 +75,10 @@
         </article>
         <!-- Login Form -->
         <article id="login">
-            <h2>Login</h2>
+            <h2>Sign Up or Login</h2>
             <section>
                 <h3 class="minor">Please sign up for an account so we can tailor excuses to you!</h3>
-                <form method="get" action="/">
+                <form method="post" action="/">
                     <div class="field half first">
                         <label for="sign-up-name">Name</label>
                         <input type="text" name="sign-up-name" id="sign-up-name" value="" placeholder="Jane Doe" />
@@ -100,11 +100,11 @@
                         </div>
                     </div>
                     <div class="field half first">
-                        <input type="radio" id="male" name="sign-up-genger" checked>
+                        <input type="radio" id="male" name="sign-up-gender" checked>
                         <label for="male">Male</label>
                     </div>
                     <div class="field half">
-                        <input type="radio" id="female" name="sign-up-genger">
+                        <input type="radio" id="female" name="sign-up-gender">
                         <label for="female">Female</label>
                     </div>
                     <div class="field">
@@ -113,7 +113,7 @@
                     </div>
                     <ul class="actions">
                         <li>
-                            <input type="submit" value="Create Account" class="special" />
+                            <input type="submit" value="Create Account" class="special" disabled="true" />
                         </li>
                         <li>
                             <input type="reset" value="Reset" />
