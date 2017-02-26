@@ -787,8 +787,10 @@ var skel=function(){"use strict";var t={breakpointIds:null,events:{},isInit:!1,o
                                     // Show main, article.
                                         $main.show();
 
-                                        $article.find('.major').text(selected_excuse.title);
-                                        $article.find('.excuse-copy').text(selected_excuse.excuse_copy);
+                                        if (selected_excuse) {
+                                            $article.find('.major').text(selected_excuse.title);
+                                            $article.find('.excuse-copy').text(selected_excuse.excuse_copy);
+                                        }
 
                                         $article.show();
 
