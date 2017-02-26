@@ -984,6 +984,7 @@ var skel=function(){"use strict";var t={breakpointIds:null,events:{},isInit:!1,o
                                 var key = Math.floor(Math.random()*filtered_excuses.length)
                                 var random_from_filtered = filtered_excuses[key];
                                 $main._show(excuse_hash, null, random_from_filtered);
+                                // console.log('new panel :', filtered_excuses);
                         }
 
                         $('.prev').on('click', function(event){

@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% load mezzanine_tags %}
-
 {% block body_class %}home-page{% endblock body_class %}
-
 {% block content %}
 <!-- Wrapper -->
 <div id="wrapper">
     <!-- Header -->
     <header id="header">
+        <div class="login">
+            <a href="#login" class="button">Login or Sign Up</a>
+        </div>
         <div class="logo">
             <span class="icon fa-diamond"></span>
         </div>
@@ -19,7 +20,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#spouse">Spouse/SO</a></li>
+                <li><a href="#spouse">Spouse</a></li>
                 <li><a href="#work">Work</a></li>
                 <li><a href="#friends">Friends</a></li>
                 <li><a href="#family">Family</a></li>
@@ -72,6 +73,55 @@
                 <span class="button next" data-tag="family">Next</span>
             </div>
         </article>
+        <!-- Login Form -->
+        <article id="login">
+            <h2>Login</h2>
+            <section>
+                <h3 class="minor">Please sign up for an account so we can tailor excuses to you!</h3>
+                <form method="get" action="/">
+                    <div class="field half first">
+                        <label for="sign-up-name">Name</label>
+                        <input type="text" name="sign-up-name" id="sign-up-name" value="" placeholder="Jane Doe" />
+                    </div>
+                    <div class="field half">
+                        <label for="sign-up-email">Email</label>
+                        <input type="email" name="sign-up-email" id="sign-up-email" value="" placeholder="jane@gmail.com" />
+                    </div>
+                    <div class="field">
+                        <label for="sign-up-category">Preferred Category</label>
+                        <div class="select-wrapper">
+                            <select name="sign-up-category" id="sign-up-category">
+                                <option value="">Select One</option>
+                                <option value="1">Friends</option>
+                                <option value="1">Family</option>
+                                <option value="1">Spouse</option>
+                                <option value="1">Work</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field half first">
+                        <input type="radio" id="male" name="sign-up-genger" checked>
+                        <label for="male">Male</label>
+                    </div>
+                    <div class="field half">
+                        <input type="radio" id="female" name="sign-up-genger">
+                        <label for="female">Female</label>
+                    </div>
+                    <div class="field">
+                        <input type="checkbox" id="demo-human" name="demo-human" checked>
+                        <label for="demo-human">Not a robot</label>
+                    </div>
+                    <ul class="actions">
+                        <li>
+                            <input type="submit" value="Create Account" class="special" />
+                        </li>
+                        <li>
+                            <input type="reset" value="Reset" />
+                        </li>
+                    </ul>
+                </form>
+            </section>
+        </article>
     </div>
     <!-- Footer -->
     <footer id="footer">
@@ -80,7 +130,4 @@
 </div>
 <!-- BG -->
 <div id="bg"></div>
-
-
 {% endblock %}
-
